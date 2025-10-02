@@ -65,7 +65,9 @@ Explore the application to find your next favorite meal!
 -   ⚡ **Modern Development Stack:** Built with Vite for incredibly fast build times and a superior developer experience.
 -   🎨 **Sleek & Responsive UI:** Crafted with Tailwind CSS for a modern, mobile-first design that looks great on any device.
 -   🔄 **Efficient State Management:** Utilizes Zustand for a streamlined and intuitive global state management solution.
-
+- 🔄 **persistence using local storage:** 
+    **pagination:** 
+    
 ## Project Structure
 
 ```
@@ -103,7 +105,6 @@ recipe-finder/
 ├── package.json
 ├── package-lock.json
 ├── README.md
-├── TODO.md
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json

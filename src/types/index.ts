@@ -6,7 +6,7 @@ export interface Recipe {
   extendedIngredients?: any[]
 }
 
-export interface Filters {
+export type Filters = {
   cuisine?: string
   diet?: string
   sort?: string
@@ -20,7 +20,9 @@ export interface RecipeState {
   error: string | null
   currentFilters: Filters
   currentQuery: string
-  getRecipes: (query?: string, filters?: Filters) => Promise<void>
+  currentPage: number
+  totalPages: number
+  getRecipes: (query?: string, filters?: Filters, page?: number) => Promise<void>
   getRecipeDetails: (id: number) => Promise<void>
   addFavorite: (recipe: Recipe) => void
   removeFavorite: (id: number) => void

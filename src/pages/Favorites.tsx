@@ -66,6 +66,7 @@ export default function FavoritesList() {
                   View Recipe
                 </button>
                 <button
+                title="remove"
                   onClick={() => handleRemove(recipe.id)}
                   disabled={removingId === recipe.id}
                   className="bg-red-600 text-white flex items-center  p-4 rounded-md hover:bg-red-700 transition-colors font-medium disabled:opacity-50"
