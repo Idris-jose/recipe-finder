@@ -1,6 +1,7 @@
 import { useState } from "react"
 import useRecipeStore from "../store/recipeStore"
 import RecipeModal from "../components/RecipeModal"
+import { Trash } from "lucide-react"
 export default function FavoritesList() {
   const { favorites, removeFavorite, getRecipeDetails } = useRecipeStore()
   const [removingId, setRemovingId] = useState<number | null>(null)
@@ -27,12 +28,12 @@ export default function FavoritesList() {
   }
 
   return (
-    <div>
+    <div className="p-6">
       <div className="mb-6">
         <h2 className="text-3xl font-bold text-gray-900">
           My Favorites
           <span className="ml-3 text-xl font-normal text-gray-400">
-            {favorites.length}
+            ({favorites.length})
           </span>
         </h2>
       </div>
@@ -67,9 +68,9 @@ export default function FavoritesList() {
                 <button
                   onClick={() => handleRemove(recipe.id)}
                   disabled={removingId === recipe.id}
-                  className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors font-medium disabled:opacity-50"
+                  className="bg-red-600 text-white flex items-center  p-4 rounded-md hover:bg-red-700 transition-colors font-medium disabled:opacity-50"
                 >
-                  ✕
+                  <Trash className="inline-block w-4 h-4 mr-2" />
                 </button>
               </div>
             </div>

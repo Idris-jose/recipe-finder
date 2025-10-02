@@ -1,5 +1,6 @@
 import { useState } from "react"
 import useRecipeStore from "../store/recipeStore"
+import { Heart } from 'lucide-react';
 
 interface RecipeCardProps {
   recipe: {
@@ -23,8 +24,6 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
     setIsAdding(true)
     addFavorite(recipe)
     
-    // Brief animation feedback
-    setTimeout(() => setIsAdding(false), 600)
   }
 
   return (
@@ -37,8 +36,8 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           loading="lazy"
         />
         {isFavorited && (
-          <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
-            ♥ Saved
+          <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-2 rounded-full text-xs font-semibold">
+            <Heart/> 
           </div>
         )}
       </div>
@@ -68,7 +67,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
                 : 'bg-red-700 text-white hover:bg-red-800'
             }`}
           >
-            {isFavorited ? '✓ Saved' : isAdding ? 'Adding...' : '+ Favorite'}
+            {isFavorited ? 'Favorited' : isAdding ? 'Adding...' : 'Add to Favorite'}
           </button>
         </div>
       </div>

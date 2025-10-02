@@ -8,13 +8,15 @@ export default function Home() {
     
     return (
         <>
-            <Header />
+        <div className="justify-center items-center min-h-screen bg-gray-100">
+           <Header />
             <div className="container mx-auto p-4">
             <SearchBar />
             <FilterPanel />
             <RecipeList />
             <RecipeModal />
         </div>
+        </div>
         </>
-    );
+    )
 }
