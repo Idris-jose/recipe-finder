@@ -1,10 +1,17 @@
 import useRecipeStore from "../store/recipeStore"
 import RecipeCard from "./RecipeCard"
+import RecipeSkeleton from "./RecipeSkeleton"
 
 export default function RecipeList() {
   const { recipes, loading, error, currentQuery, currentPage, totalPages, getRecipes, currentFilters } = useRecipeStore()
 
-  if (loading) return <p className="text-center">Loading recipes...</p>
+  if (loading) return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {Array.from({ length: 12 }).map((_, index) => (
+        <RecipeSkeleton key={index} />
+      ))}
+    </div>
+  )
   if (error) return <p className="text-center text-red-500">{error}</p>
   if (!currentQuery.trim() && (!recipes || recipes.length === 0)) return <p className="text-center">Search for something.</p>
   if (currentQuery.trim() && (!recipes || recipes.length === 0)) return <p className="text-center">No recipes found.</p>
